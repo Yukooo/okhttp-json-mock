@@ -13,8 +13,9 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
-import ir.mirrajabi.okhttpjsonmock.OkHttpMockInterceptor;
-import ir.mirrajabi.okhttpjsonmock.providers.InputStreamProvider;
+import com.okhttpjsonstub.OkHttpStubInterceptor;
+import com.okhttpjsonstub.providers.StreamProvider;
+
 import ir.mirrajabi.okhttpjsonmock.sample.services.UsersService;
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
@@ -73,11 +74,11 @@ public class MainActivity extends AppCompatActivity {
 
     private OkHttpClient constructClient() {
         return new OkHttpClient.Builder()
-                .addInterceptor(new OkHttpMockInterceptor(getAndroidProvider(), 5))
+                .addInterceptor(new OkHttpStubInterceptor(getAndroidProvider(), 5))
                 .build();
     }
 
-    private InputStreamProvider getAndroidProvider() {
+    private StreamProvider getAndroidProvider() {
         return path -> {
             try {
                 return getAssets().open(path);

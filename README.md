@@ -6,7 +6,7 @@ This simple library helps you mock your data for using with okhttp+retrofit in j
 it forwards the requests to local json files and returns the data stored in them.
 
 ## Version 3.0 Notes:
-`3.0` introduces breaking changes, since it removes the wrapper for mocked responses ([MockedResponse.java](https://github.com/mirrajabi/okhttp-json-mock/blob/2.0/okhttpjsonmock/src/main/java/ir/mirrajabi/okhttpjsonmock/models/MockedResponse.java)) and therefor does not alter the api anymore.
+`3.0` introduces breaking changes, since it removes the wrapper for mocked responses ([MockedResponse.java](https://github.com/mirrajabi/okhttp-json-mock/blob/2.0/com.okhttpjsonmock/src/main/java/ir/mirrajabi/com.okhttpjsonmock/models/MockedResponse.java)) and therefor does not alter the api anymore.
 Data transfer objects are now accessed directly without embedding them into an additional json object. See the [Version 2.0 Documentation](https://github.com/mirrajabi/okhttp-json-mock/blob/2.0/README.md) for the old api.
 
 ## Version 2.0 Notes:
@@ -29,10 +29,10 @@ dependencies {
  }
 ```
 **Since version 2.0**:
-1. Construct your custom [InputStreamProvider](https://github.com/mirrajabi/okhttp-json-mock/blob/master/okhttpjsonmock/src/main/java/ir/mirrajabi/okhttpjsonmock/providers/InputStreamProvider.java):
+1. Construct your custom [InputStreamProvider](https://github.com/mirrajabi/okhttp-json-mock/blob/master/com.okhttpjsonmock/src/main/java/ir/mirrajabi/com.okhttpjsonmock/providers/InputStreamProvider.java):
 
 ```java
-InputStreamProvider inputStreamProvider = new InputStreamProvider() {
+InputStreamProvider streamProvider = new InputStreamProvider() {
     @Override
     public InputStream provide(String path) {
         try {
